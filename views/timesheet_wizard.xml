@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="timesheets_report_view" model="ir.ui.view">
+            <field name="name">timesheet.wizard</field>
+            <field name="model">timesheet.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Billing Report">
+
+                    <group>
+                        <group string="Select Employee">
+                            <field name="employee"/>
+
+
+                        </group>
+                        <group string="Select Project">
+                            <field name="project"/>
+                        </group>
+                        <group string="Select Date">
+                            <field name="from_date"/>
+                            <field name="to_date"/>
+                        </group>
+                        <footer>
+                            <button string="Print Timesheet" name="print_timesheet" type="object" class="btn-primary"/>
+
+                            <button string="Discard" class="btn-default" special="cancel"/>
+                        </footer>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
+
+

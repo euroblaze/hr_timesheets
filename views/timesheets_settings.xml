@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='hr_settings']" position='after'>
+                <page string='Timesheets Settings'>
+                    <group>
+                        <group string="Current logged hours">
+                            <field name="daily_hours"/>
+                            <field name="weekly_hours"/>
+                             <field name="monthly_hours"/>
+                        </group>
+                        <group string="Set min hours">
+                            <field name="max_daily_hours"/>
+                            <field name="max_weekly_hours"/>
+                             <field name="max_monthly_hours"/>
+
+                        </group>
+                    </group>
+                     <group string="Select Specific Project">
+                            <field name="specific_project"/>
+                             <field name="automatic_email" widget='checkbox'/>
+
+
+                     </group>
+
+
+                     <footer>
+                            <button name="action_send_mail" string="Notify" type="object" class="btn-primary"/>
+
+                     </footer>
+
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

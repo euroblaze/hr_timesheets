@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_template_reminder_user" model="mail.template">
+            <field name="name">Logged Hours : Employees Reminder</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="subject">Reminder to log your timesheets</field>
+            <field name="email_from">${(object.user_id.email_formatted) | safe}</field>
+            <field name="email_to">${object.work_email | safe}</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"><tr><td align="center">
+                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                        <tbody>
+                            <!-- HEADER -->
+                            <tr>
+                                <td align="center" style="min-width: 590px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                        <tr><td valign="middle">
+                                            <span style="font-size: 10px;">Your Timesheets</span><br/>
+                                            <span style="font-size: 20px; font-weight: bold;">
+                                                ${object.name}
+                                            </span>
+                                        </td><td valign="middle" align="right">
+                                            <img src="/logo.png?company=${object.company_id.id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${object.company_id.name}"/>
+                                        </td></tr>
+                                        <tr><td colspan="2" style="text-align:center;">
+                                            <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                        </td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- CONTENT -->
+                            <tr>
+                                <td align="center" style="min-width: 590px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                        <tr><td valign="top" style="font-size: 13px;">
+                                            <div>
+                                                Hello ${object.name},<br/><br/>
+                                                ⏰ This is a friendly reminder to log your hours.<br/>
+
+                                                <span style="font-size: 10px; font-weight: bold;">
+                                                  Daily Hours:<br/>
+                                                </span>
+                                                You only logged
+                                                <span style="font-size: 10px; font-weight: bold;">${object.daily_hours} </span>
+                                                hours on the  <span style="font-size: 10px; font-weight: bold;">${object.max_daily_hours}</span> requested.<br/>
+                                                <span style="font-size: 10px; font-weight: bold;">
+                                                    Weekly Hours:<br/>
+                                                </span>
+                                                You only logged  <span style="font-size: 10px; font-weight: bold;">${object.weekly_hours} </span>hours on the
+                                                <span style="font-size: 10px; font-weight: bold;">${object.max_weekly_hours} </span> requested.<br/>
+                                                <span style="font-size: 10px; font-weight: bold;">
+                                                   Monthly Hours:<br/>
+                                                </span>
+                                                You only logged  <span style="font-size: 10px; font-weight: bold;">${object.monthly_hours} </span>
+                                                hours on the  <span style="font-size: 10px; font-weight: bold;">${object.max_monthly_hours} </span> requested.<br/>
+<!--                                                 % if ctx.get('action_url'):-->
+<!--                                                <div style="margin: 16px 0px 16px 0px;">-->
+<!--                                                    <a href="${ctx.get('action_url')}"-->
+<!--                                                       style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 13px;">Fill your timesheet</a>-->
+<!--                                                </div>-->
+<!--                                                % endif-->
+                                                <br/>Thank you<br/>
+                                                <br>Have a nice day!</br>
+
+                                            </div>
+                                        </td></tr>
+                                        <tr><td style="text-align:center;">
+                                            <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                        </td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- FOOTER -->
+                            <tr>
+                                <td align="center" style="min-width: 590px;">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                        <tr><td valign="middle" align="left">
+                                            ${object.company_id.name}
+                                        </td></tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </td></tr>
+                </table>
+            </field>
+        </record>
+    </data>
+</odoo>
